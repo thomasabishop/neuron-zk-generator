@@ -1,12 +1,11 @@
 from constants import SOURCE
 from constants import TARGET
-from copy_zettels import copy_zettels
+from lib.create_source_dir import create_source_dir
 
 
 def main():
-    print("this is the app")
-    print(SOURCE)
-    copy_zettels()
+    output_dir = create_source_dir()
+    print(output_dir)
 
 
 if __name__ == "__main__":
