@@ -16,7 +16,7 @@ def create_target_dir(target_dir, source_dir):
         os.makedirs(f"{target_dir}/{str(unique_dir_name)}")
         print(
             colored(
-                f" Created new Neuron output directory: {source_dir}/{unique_dir_name}",
+                f"  Created new Neuron output directory: {source_dir}/{unique_dir_name}",
                 "green",
             )
         )
@@ -24,5 +24,7 @@ def create_target_dir(target_dir, source_dir):
 
     except Exception as e:
         print(
-            colored(f" Error occurred when creating target directory: {str(e)}", "red")
+            colored(
+                f"  Error occurred when creating target directory: {str(e)}", "red"
+            )
         )

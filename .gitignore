@@ -5,3 +5,6 @@ __pycache__/
 *.pyd
 .pytest_cache/
 data/*.db
+build/
+dist/ 
+app.spec

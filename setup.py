@@ -5,9 +5,7 @@ setup(
     version="0.1",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    install_requires=[
-        # List your project dependencies here
-    ],
+    install_requires=["termcolor", "pyinstaller"],
     entry_points={
         "console_scripts": [
             "neuron-zk-generator=app:main",
