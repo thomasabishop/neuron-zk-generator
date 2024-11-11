@@ -1,6 +1,7 @@
 import os
 import shutil
 import uuid
+
 from termcolor import colored
 
 
@@ -16,8 +17,8 @@ def create_target_dir(target_dir, source_dir):
         os.makedirs(f"{target_dir}/{str(unique_dir_name)}")
         print(
             colored(
-                f"  Created new Neuron output directory: {source_dir}/{unique_dir_name}",
-                "green",
+                f"SUCCESS Created new Neuron output directory: {source_dir}/{unique_dir_name}",
+                "light_green",
             )
         )
         return unique_dir_name
@@ -25,6 +26,7 @@ def create_target_dir(target_dir, source_dir):
     except Exception as e:
         print(
             colored(
-                f"  Error occurred when creating target directory: {str(e)}", "red"
+                f"ERROR occurred when creating target directory: {str(e)}",
+                "light_red",
             )
         )

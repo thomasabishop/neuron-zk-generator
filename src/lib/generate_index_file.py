@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from termcolor import colored
+
 from lib.list_entries import list_entries
 
 
@@ -13,7 +15,7 @@ def generate_wikilinks(entries):
 
 def generate_index_file(target_dir, unique_dir_name, source_dir):
     try:
-        print(colored("  Creating index file...", "blue"))
+        print(colored("INFO Creating index file...", "light_blue"))
         index_file = f"{target_dir}/index.md"
         build_date = datetime.now()
         build_date = build_date.strftime("%a %d %b %Y %H:%M:%S")
@@ -28,7 +30,7 @@ def generate_index_file(target_dir, unique_dir_name, source_dir):
 
         recent_notes = list_entries(f"{source_dir}/zk")
         recents = sorted(recent_notes, key=lambda item: item["modified"], reverse=True)
-        recents = recents[:8]
+        recents = recents[:12]
         recents = get_entry_titles(recents)
         recents_formatted = generate_wikilinks(recents)
 
@@ -46,6 +48,10 @@ def generate_index_file(target_dir, unique_dir_name, source_dir):
             f.write(note)
 
         f.close()
-        print(colored("  Index file created!", "green"))
+        print(colored("SUCCESS Index file created", "light_green"))
     except Exception as e:
-        print(colored(f"  Error occurred when transferring files: {str(e)}", "red"))
+        print(
+            colored(
+                f"ERROR Error occurred when transferring files: {str(e)}", "light_red"
+            )
+        )

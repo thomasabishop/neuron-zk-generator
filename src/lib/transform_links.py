@@ -1,5 +1,6 @@
 import os
 import re
+
 from termcolor import colored
 
 image_rgx = r"!\[.*?\]\((.*?)\)"
@@ -11,16 +12,16 @@ def process_image_links(line, links):
             stripped_img_ref = re.search(r"[^/\\]+$", link)
             if stripped_img_ref:
                 stripped_img_ref = stripped_img_ref.group()
-                new_img_ref = f"/static/{stripped_img_ref}"
+                new_img_ref = f"static/{stripped_img_ref}"
                 line = line.replace(f"({link})", f"({new_img_ref})")
         #        print(colored(f"     {links}", "green"))
         return line
     except Exception as e:
-        print(colored(f" Error when transforming link: {str(e)}", "red"))
+        print(colored(f"ERROR Error when transforming link: {str(e)}", "light_red"))
 
 
 def transform_links(target_dir):
-    print(colored("  Updating links...", "blue"))
+    print(colored("INFO: Updating links...", "light_blue"))
     for filename in os.listdir(target_dir):
         if filename.endswith(".md"):
             file_path = os.path.join(target_dir, filename)
@@ -44,7 +45,7 @@ def transform_links(target_dir):
                     f.writelines(new_lines)
     print(
         colored(
-            "  Links updated!",
-            "green",
+            "SUCCESS Links updated",
+            "light_green",
         )
     )
