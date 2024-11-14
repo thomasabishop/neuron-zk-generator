@@ -1,4 +1,4 @@
-# `neuron-zk-generator`
+# neuron-zk-generator
 
 This Python application reads data from [my](https://github.com/thomasabishop/eolas) [zettelkasten](https://en.wikipedia.org/wiki/Zettelkasten) and
 formats it so that it can be compiled as a [Neuron](https://neuron.zettel.page/) project and from there published as a static-site on the Web.
@@ -7,7 +7,6 @@ formats it so that it can be compiled as a [Neuron](https://neuron.zettel.page/)
 
 ```sh
 source venv/bin/activate
-pip install -r requirements.txt
 neuron-zk-generator
 ```
 
@@ -28,7 +27,7 @@ pipx install [local_path_to_application]
 ## Build single executable
 
 Use `pyinstaller` to create single executable file. `pyinstaller` is installed
-along with other packages in `requirements.txt`.
+along with other packages specified in `setup.py`.
 
 From root:
 
