@@ -1,9 +1,9 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="neuron-zk-generator",
     version="0.1",
-    packages=find_packages(where="src"),
+    py_modules=["app"],
     package_dir={"": "src"},
     install_requires=["termcolor", "pyinstaller"],
     entry_points={
