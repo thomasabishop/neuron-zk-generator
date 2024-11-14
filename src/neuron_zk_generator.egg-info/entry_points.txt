@@ -1,2 +1,0 @@
-[console_scripts]
-neuron-zk-generator = app:main
