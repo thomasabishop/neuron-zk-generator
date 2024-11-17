@@ -1,3 +1,4 @@
+import glob
 import shutil
 
 from termcolor import colored
@@ -16,11 +17,16 @@ def transfer_files(target_dir, source_dir):
 
         # Copy images to /static
         print(colored("INFO Copying static files...", "light_blue"))
-        shutil.copytree(
-            f"{source_dir}/img",
-            f"{target_dir}/static",
-        )
+        shutil.copytree(f"{source_dir}/img", f"{target_dir}/static", dirs_exist_ok=True)
         print(colored("SUCCESS Static files transferred", "light_green"))
+
+        # Copy favicon
+        [
+            shutil.copy2(f, f"{target_dir}/static")
+            for f in glob.glob(
+                f"{source_dir}/.neuron-generator/templates/favicon/favicon*"
+            )
+        ]
 
         print(colored("INFO Copying zettels...", "light_blue"))
 
