@@ -14,6 +14,13 @@ def transfer_files(target_dir, source_dir):
         neuron_template.close()
         print(colored("SUCCESS Templates transferred", "light_green"))
 
+        # Copy favicon
+        shutil.copytree(
+            f"{source_dir}/.neuron-generator/templates/favicon",
+            f"{target_dir}/static",
+            dirs_exist_ok=True,
+        )
+
         # Copy images to /static
         print(colored("INFO Copying static files...", "light_blue"))
         shutil.copytree(
