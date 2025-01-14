@@ -22,6 +22,8 @@ def transfer_files(target_dir, source_dir):
         # Copy images to /static
         print(colored("INFO Copying static files...", "light_blue"))
         shutil.copytree(f"{source_dir}/img", f"{target_dir}/static", dirs_exist_ok=True)
+
+        # Copy favicon
         shutil.copy2(
             f"{source_dir}/.neuron-generator/templates/favicon/favicon.ico",
             f"{target_dir}/static",
