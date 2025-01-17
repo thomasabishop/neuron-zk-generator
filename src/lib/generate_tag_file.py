@@ -18,7 +18,6 @@ def generate_tag_file(target_dir):
         print(colored("INFO Creating tag file...", "light_blue"))
         tag_file = f"{target_dir}/tags.md"
         tag_index = invoke_eolas_db()
-        print(tag_index["time"])
         with open(tag_file, "a") as file:
             for tag in tag_index:
                 file.write(f"[{tag}](./tags#{tag}), ")
@@ -27,6 +26,8 @@ def generate_tag_file(target_dir):
                 file.write(f"### {tag} \n\n")
                 for entry in tag_index[tag]:
                     file.write(f"- [[{entry}]] \n")
+
+        print(colored("SUCCESS Tag file created", "light_green"))
     except Exception as e:
         print(
             colored(
