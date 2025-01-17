@@ -52,6 +52,6 @@ def generate_index_file(target_dir, unique_dir_name, source_dir):
     except Exception as e:
         print(
             colored(
-                f"ERROR Error occurred when transferring files: {str(e)}", "light_red"
+                f"ERROR Error occurred when generating index file: {str(e)}", "light_red"
             )
         )

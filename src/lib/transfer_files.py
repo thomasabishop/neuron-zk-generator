@@ -1,4 +1,3 @@
-import glob
 import shutil
 
 from termcolor import colored

@@ -1,8 +1,10 @@
 import subprocess
+
 from lib.create_target_dir import create_target_dir
+from lib.generate_index_file import generate_index_file
+from lib.generate_tag_file import generate_tag_file
 from lib.transfer_files import transfer_files
 from lib.transform_links import transform_links
-from lib.generate_index_file import generate_index_file
 
 SOURCE = "/home/thomas/repos/eolas"
 TARGET = "/home/thomas/repos/eolas/neuron"
@@ -15,6 +17,7 @@ def main():
         transfer_files(f"{TARGET}/{build_id}", SOURCE)
         transform_links(f"{TARGET}/{build_id}")
         generate_index_file(f"{TARGET}/{build_id}", build_id, SOURCE)
+        generate_tag_file(f"{TARGET}/{build_id}")
         subprocess.run(
             [
                 "node",
