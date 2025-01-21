@@ -5,6 +5,7 @@ from termcolor import colored
 
 
 def invoke_eolas_db():
+    subprocess.run(["eolas-db", "populate-database"])
     process = subprocess.run(
         ["eolas-db", "export-tags"],
         capture_output=True,
@@ -34,5 +35,3 @@ def generate_tag_file(target_dir):
                 f"ERROR Error occurred when creating tag file: {str(e)}", "light_red"
             )
         )
-
-    # check with open syntax
